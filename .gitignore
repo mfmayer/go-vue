@@ -7,6 +7,8 @@
 
 # Test binary, built with `go test -c`
 *.test
+__debug_bin
+go-vue
 
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out

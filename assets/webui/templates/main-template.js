@@ -22,9 +22,6 @@ const MainTemplate = String.raw`
     <q-drawer show-if-above v-model="left" side="left" bordered>
       <q-list>
         <q-item>
-          <q-btn label="check version" color="primary" @click="checkVersion" class="full-width"></q-btn>
-        </q-item>
-        <q-item>
           <q-input standout bottom-slots v-model="name" label="Name" @keyup.enter="setName">
             <template v-slot:before>
               <q-icon name="account_circle" />
@@ -33,6 +30,9 @@ const MainTemplate = String.raw`
               <q-btn round dense flat icon="check" @click="setName" />
             </template>
           </q-input>
+        </q-item>
+        <q-item>
+          <q-btn label="check version" color="primary" @click="checkVersion" class="full-width"></q-btn>
         </q-item>
       </q-list>
     </q-drawer>
