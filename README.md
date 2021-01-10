@@ -26,7 +26,7 @@ $ ./go-vue
 INFO:  2021/01/10 14:04:04 Web UI listening on: :9055
 ```
 
-![UI Screenshot](doc/images/2021-01-10-14-11-06.png)
+![UI Screenshot](doc/images/2021-01-10-18-53-33.png)
 
 The application's API only contains 3 methods:
 
