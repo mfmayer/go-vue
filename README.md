@@ -1,12 +1,12 @@
 # Let's go with vue
 
-The project show's how I've set up a very simple, exemplary [*GO*](https://golang.org/) application using [*Vue.js*](https://vuejs.org/) and the [*Quasar*](https://quasar.dev/) framework as frontend. My intention was that the built application still consists of single binary and serves all needed UI's html and javascript files with an embedded webserver so that it can be accessed by just opening it's address and port in a browser.
+The project shows how I built a very simple, example [*GO*](https://golang.org/) application using [*Vue.js*](https://vuejs.org/) and the [*Quasar*](https://quasar.dev/) framework as the frontend. My intention was to have the built application consist of only a single binary and serve all the required user interface html and javascript files with an embedded web server, so that it can be accessed by simply opening the address and port in a browser.
 
-Besides I tried to completely avoid and CLI tools or bundlers for creating the UI. Instead ES Modules are used that most browsers support these days (for this, Arswaw's [article](https://dev.to/arswaw/create-a-lightweight-componentized-spa-without-node-569j) was a great help and inspiration).
+I also tried to completely avoid using CLI tools or bundlers to build the UI. Instead, ES (ECMAScript) modules are used, which are supported by most browsers nowadays (for this, Arswaw's [article](https://dev.to/arswaw/create-a-lightweight-componentized-spa-without-node-569j) was a great help and inspiration).
 
 ## Getting started
 
-After cloning the project, it can be just compiled by
+After cloning the project, it can be just compiled by:
 
 ```shell
 $ go generate
@@ -19,11 +19,22 @@ $ go build
 
 As you can see the `go generate` step creates a virtual filesystem that contains all the UI sources that will be served by the application's webserver. After valling `go build` the binary (`go-vue`) should be created.
 
-It can be started with the following command line parameters:
+After starging the application, it will listen on port 9055:
 
-* // TODO: Implement command line parameters at least for listening address and port
+```shell
+$ ./go-vue 
+INFO:  2021/01/10 14:04:04 Web UI listening on: :9055
+```
 
-![UI Screenshot](doc/images/2021-01-08-14-43-34.png)
+![UI Screenshot](doc/images/2021-01-10-14-11-06.png)
+
+The application's API only contains 3 methods:
+
+* **titlePrefix**: Returns the title's prefix (here `let's`). This is called when the UI page is loaded.
+* **setName**: Sets the user name and returns a messsage that contain's the user name. This is called when either enter is pressed after entering a name or when the check mark was pressed.
+* **version**: Returns the current application's version. This is called when the *CHECK VERSION* button is pressed and opens a notification with the version number.
+
+Calling these API methods is implemented in UI's [`api.js`](assets/webui/api.js).
 
 ## Project Structure
 
